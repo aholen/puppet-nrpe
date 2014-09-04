@@ -5,6 +5,7 @@ class nrpe::params (
   $port = 5666,
   $command_timeout = 180,
   $firewall = false, ## disabling this for now
+  $allow_args = false,
   $nagios_extra_plugins = undef,
 )
 {

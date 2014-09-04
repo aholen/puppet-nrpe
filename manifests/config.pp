@@ -11,6 +11,7 @@ class nrpe::config {
   $nagios_extra_plugins = $nrpe::params::nagios_extra_plugins
   $nagios_ips = $nrpe::params::nagios_ips
   $command_timeout = $nrpe::params::command_timeout
+  $allow_args = $nrpe::params::allow_args
 
   file { 'nrpecfg':
     name    => '/etc/nagios/nrpe.cfg',

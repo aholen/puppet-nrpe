@@ -64,6 +64,9 @@ These are class params so use hiera or and ENC to set them up easily.
     # timeout for nrpe checks
     $nrpe::params:: firewall = false
     # whether to use puppetlabs/firewall to setup the iptables rule
+    $nrpe::params::allow_args = false
+    # whether to allow passing arguments to nrpe. (dont_blame_nrpe=1) 
+    # (WARNING: Security risk)
 
 Usage
 -----
