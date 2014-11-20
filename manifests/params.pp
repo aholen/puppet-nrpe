@@ -32,8 +32,8 @@ class nrpe::params (
   }
   case $::operatingsystem {
     default: {
-      $nrpe_package = 'nrpe'
-      $nrpe_check_package = 'nagios-plugins-nrpe'
+      $nrpe_package = hiera('nrpe::params::nrpe_package' , 'nrpe')
+      $nrpe_check_package = hiera('nrpe::params::nrpe_check_package', 'nagios-plugins-nrpe')
       $pid_file = '/var/run/nrpe/nrpe.pid'
     }
     /(Debian|Ubuntu)/: {
@@ -44,10 +44,10 @@ class nrpe::params (
   }
   case $::osfamily {
     RedHat: {
-      $plugin_package_list = ['perl-Nagios-Plugin','nagios-plugins-all',]
+      $plugin_package_list = hiera('nrpe::params::plugin_package_list' , ['libnagios-plugin-perl','nagios-plugins-extra','nagios-plugins-basic','nagios-plugins-standard', 'nagios-plugins'])
     }
     Debian: {
-      $plugin_package_list = ['libnagios-plugin-perl','nagios-plugins-extra','nagios-plugins-basic','nagios-plugins-standard', 'nagios-plugins']
+      $plugin_package_list = hiera('nrpe::params::plugin_package_list' , ['libnagios-plugin-perl','nagios-plugins-extra','nagios-plugins-basic','nagios-plugins-standard', 'nagios-plugins'])
     }
   }
 }
