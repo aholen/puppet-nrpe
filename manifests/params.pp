@@ -44,7 +44,7 @@ class nrpe::params (
   }
   case $::osfamily {
     RedHat: {
-      $plugin_package_list = hiera('nrpe::params::plugin_package_list' , ['libnagios-plugin-perl','nagios-plugins-extra','nagios-plugins-basic','nagios-plugins-standard', 'nagios-plugins'])
+      $plugin_package_list = hiera('nrpe::params::plugin_package_list' , ['perl-Nagios-Plugin','nagios-plugins-all',])
     }
     Debian: {
       $plugin_package_list = hiera('nrpe::params::plugin_package_list' , ['libnagios-plugin-perl','nagios-plugins-extra','nagios-plugins-basic','nagios-plugins-standard', 'nagios-plugins'])
